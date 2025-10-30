@@ -16,8 +16,6 @@
         "start": "next start"
     },
     "dependencies": {
-        "airtable": "^0.12.2",
-        "argon2": "^0.44.0",
         "daisyui": "^5.3.9",
         "flowbite-react": "^0.12.9",
         "next": "15",
