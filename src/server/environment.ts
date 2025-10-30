@@ -9,9 +9,6 @@ export default createEnv({
     emptyStringAsUndefined: true,
     runtimeEnv: process.env,
     server: {
-        AIRTABLE_API_KEY: zod.string().min(1),
-        AIRTABLE_BASE_ID: zod.string().min(1),
-        AIRTABLE_TABLE_ID: zod.string().min(1),
         NEXTAUTH_URL: zod.url(),
         NEXTAUTH_SECRET: zod.string().min(1),
     },
