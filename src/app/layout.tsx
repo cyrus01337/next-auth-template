@@ -15,7 +15,7 @@ const INTER = Inter({
     display: "swap",
 });
 export const metadata: Metadata = {
-    title: "Gym Site",
+    title: "Next Auth Boilerplate",
     description: "WIP",
 };
 
