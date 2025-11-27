@@ -53,6 +53,8 @@ const HANDLER = NextAuth({
                     if (error instanceof Error) {
                         logging.log(`Invalid password: ${error.message}`);
                     }
+
+                    return null;
                 }
 
                 const credentials = {
