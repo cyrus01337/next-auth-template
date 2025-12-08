@@ -28,13 +28,5 @@
         "target": "ESNext"
     },
     "exclude": ["node_modules/"],
-    "include": [
-        "src/",
-        ".husky/install.js",
-        ".next/types/**/*.ts",
-        "index.d.ts",
-        "next-env.d.ts",
-        "*.d.ts",
-        "eslint.config.ts"
-    ]
+    "include": ["src/", ".husky/install.js", ".next/types/**/*.ts", "*.d.ts", "eslint.config.ts"]
 }

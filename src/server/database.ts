@@ -7,7 +7,7 @@ export interface User {
 
 let cachedRecords: User[];
 
-const fetchRecords = async () => {
+const _fetchRecords = async () => {
     if (cachedRecords) {
         return cachedRecords;
     }
