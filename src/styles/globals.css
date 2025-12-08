@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
-@plugin "flowbite-react/plugin/tailwindcss";
 @plugin "daisyui";
-
-@source "../../.flowbite-react/class-list.json";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,

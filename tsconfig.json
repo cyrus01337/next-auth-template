@@ -35,7 +35,6 @@
         "index.d.ts",
         "next-env.d.ts",
         "*.d.ts",
-        "eslint.config.ts",
-        ".flowbite-react/init.tsx"
+        "eslint.config.ts"
     ]
 }
