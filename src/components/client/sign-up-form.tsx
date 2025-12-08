@@ -44,48 +44,48 @@ export default function SignUpForm() {
         <form className="space-y-4 md:space-y-6" onSubmit={handleSignUp}>
             <div>
                 <label
-                    htmlFor="email"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    htmlFor="email"
                 >
                     Email
                 </label>
 
                 <input
-                    type="email"
-                    name="email"
-                    id="email"
                     className="focus:ring-primary focus:border-primary block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    placeholder="name@company.com"
                     defaultValue={email}
+                    id="email"
+                    name="email"
                     onInput={event => setEmail(event.currentTarget.value)}
+                    placeholder="name@company.com"
                     required
+                    type="email"
                 />
             </div>
 
             <div>
                 <label
-                    htmlFor="password"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    htmlFor="password"
                 >
                     Password
                 </label>
 
                 <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
                     className="focus:ring-primary focus:border-primary block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="password"
+                    name="password"
+                    placeholder="••••••••"
                     required
+                    type="password"
                 />
             </div>
 
             {error.length > 0 ? <p aria-live="polite">{error}</p> : null}
 
             <button
-                type="submit"
                 className="btn btn-primary w-full rounded-lg"
                 disabled={registering}
+                type="submit"
             >
                 {!registering ? (
                     "Sign Up"
@@ -96,7 +96,7 @@ export default function SignUpForm() {
 
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
-                <a href="/login" className="text-primary font-medium hover:underline">
+                <a className="text-primary font-medium hover:underline" href="/login">
                     Log In
                 </a>
             </p>
