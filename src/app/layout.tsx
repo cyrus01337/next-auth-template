@@ -6,6 +6,7 @@ import AuthProvider from "~/app/_components/auth-provider";
 
 import type { Metadata } from "next";
 import Navbar from "./_components/navbar";
+import environment from "~/server/environment";
 
 interface Properties {
     children: React.ReactNode;
@@ -16,15 +17,21 @@ const INTER = Inter({
     display: "swap",
 });
 export const metadata: Metadata = {
-    title: "Next Auth Boilerplate",
     description: "WIP",
+    title: environment.NEXT_PUBLIC_PROJECT_NAME,
 };
 
 export default function RootLayout(properties: Properties) {
     return (
         <html className={INTER.className} lang="en">
             <body>
-                <AuthProvider>{properties.children}</AuthProvider>
+                <AuthProvider>
+                    <div className="flex flex-col h-dvh">
+                        <Navbar projectName={environment.NEXT_PUBLIC_PROJECT_NAME} />
+
+                        {properties.children}
+                    </div>
+                </AuthProvider>
             </body>
         </html>
     );
