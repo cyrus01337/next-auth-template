@@ -2,9 +2,10 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 
-import AuthProvider from "~/components/client/auth-provider";
+import AuthProvider from "~/app/_components/auth-provider";
 
 import type { Metadata } from "next";
+import Navbar from "./_components/navbar";
 
 interface Properties {
     children: React.ReactNode;

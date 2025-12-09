@@ -6,7 +6,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import LoginForm from "~/components/client/login-form";
+import LoginForm from "~/app/(accounts)/login/_components/login-form";
 
 export default async function Login() {
     const csrfToken = await getCsrfToken();

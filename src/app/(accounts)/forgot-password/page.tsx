@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import ForgotPasswordForm from "~/components/client/forgot-password-form";
+import ForgotPasswordForm from "~/app/(accounts)/forgot-password/_components/forgot-password-form";
 
 export default async function ForgotPassword() {
     return (

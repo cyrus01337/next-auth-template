@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import SignUpForm from "~/components/client/sign-up-form";
+import SignUpForm from "~/app/(accounts)/sign-up/_components/sign-up-form";
 
 export default async function SignUp() {
     const session = await getServerSession();
