@@ -10,11 +10,13 @@ interface Properties {
 }
 
 export default function LoginForm(properties: Properties) {
-    const [loggingIn, setLoggingIn] = useState(false);
     const [email, setEmail] = useState("");
+    const [error, setError] = useState("");
+    const [loggingIn, setLoggingIn] = useState(false);
 
     const handleSignIn: React.FormEventHandler<HTMLFormElement> = async event => {
         event.preventDefault();
+        setError("");
         setLoggingIn(true);
 
         const formData = new FormData(event.currentTarget);
@@ -23,10 +25,15 @@ export default function LoginForm(properties: Properties) {
             password: formData.get("password") as string,
         } satisfies ClientLoginCredentials;
 
-        await signIn("credentials", {
+        const response = await signIn("credentials", {
             ...credentials,
             callbackUrl: "/",
         });
+
+        if (response && !response?.ok) {
+            setError(`HTTP ${response.status}: ${response.error}`);
+        }
+
         setLoggingIn(false);
     };
 
@@ -72,7 +79,7 @@ export default function LoginForm(properties: Properties) {
                 />
             </div>
 
-            {/* <p aria-live="polite">{data?.errors.join("\n")}</p> */}
+            {error.length > 0 ? <p aria-live="polite">{error}</p> : null}
 
             <div className="flex items-center justify-between">
                 <a

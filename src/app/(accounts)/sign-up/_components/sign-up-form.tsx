@@ -11,8 +11,6 @@ export default function SignUpForm() {
     const [registering, setRegistering] = useState(false);
 
     const handleSignUp: React.FormEventHandler<HTMLFormElement> = async event => {
-        "use client";
-
         event.preventDefault();
         setError("");
         setRegistering(true);
@@ -29,8 +27,9 @@ export default function SignUpForm() {
                 password: formData.get("password") as string,
             } satisfies ClientLoginCredentials;
 
-            signIn("credentials", {
+            await signIn("credentials", {
                 ...rawCredentials,
+
                 callbackUrl: "/",
             });
         } else {

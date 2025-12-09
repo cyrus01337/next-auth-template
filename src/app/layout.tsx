@@ -4,17 +4,18 @@ import { Inter } from "next/font/google";
 
 import AuthProvider from "~/app/_components/auth-provider";
 
-import type { Metadata } from "next";
-import Navbar from "./_components/navbar";
+import Navbar from "~/app/_components/navbar";
 import environment from "~/server/environment";
+
+import type { Metadata } from "next";
 
 interface Properties {
     children: React.ReactNode;
 }
 
 const INTER = Inter({
-    subsets: ["latin"],
     display: "swap",
+    subsets: ["latin"],
 });
 export const metadata: Metadata = {
     description: "WIP",
