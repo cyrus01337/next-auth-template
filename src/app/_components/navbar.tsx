@@ -4,11 +4,11 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import Render from "~/components/client/render";
 
-const BUTTON_CLASS = "btn btn-primary btn-ghost min-w-24";
-
 interface Properties {
     projectName?: string;
 }
+
+const BUTTON_CLASS = "btn btn-primary btn-ghost min-w-24";
 
 export default function Navbar(properties: Properties) {
     const { data: session } = useSession();
