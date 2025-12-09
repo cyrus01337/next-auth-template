@@ -39,16 +39,16 @@ export default function Navbar(properties: Properties) {
                 </Render>
 
                 <Render if={session}>
+                    <Link className={BUTTON_CLASS} href="/dashboard">
+                        Dashboard
+                    </Link>
+
                     <button
                         className={BUTTON_CLASS}
                         onClick={() => signOut({ callbackUrl: "/", redirect: true })}
                     >
                         Logout
                     </button>
-
-                    <Link className={BUTTON_CLASS} href="/dashboard">
-                        Dashboard
-                    </Link>
                 </Render>
             </div>
         </div>
