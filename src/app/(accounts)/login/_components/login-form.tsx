@@ -1,16 +1,12 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { getCsrfToken, signIn } from "next-auth/react";
 import { useState } from "react";
 
 import type { ClientLoginCredentials } from "~/shared/types";
 import type { FormEventHandler, FunctionComponent } from "react";
 
-interface Properties {
-    csrfToken?: string;
-}
-
-const LoginForm: FunctionComponent<Properties> = properties => {
+const LoginForm: FunctionComponent = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
@@ -29,6 +25,7 @@ const LoginForm: FunctionComponent<Properties> = properties => {
             ...credentials,
 
             callbackUrl: "/",
+            csrfToken: await getCsrfToken(),
         });
 
         if (response && !response?.ok) {
@@ -41,8 +38,6 @@ const LoginForm: FunctionComponent<Properties> = properties => {
     return (
         <form className="space-y-4 md:space-y-6" onSubmit={handleSignIn}>
             <div>
-                <input defaultValue={properties.csrfToken} name="csrfToken" type="hidden" />
-
                 <label
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                     htmlFor="email"

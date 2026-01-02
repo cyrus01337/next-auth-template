@@ -1,7 +1,6 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import { getCsrfToken } from "next-auth/react";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -9,7 +8,6 @@ import { redirect } from "next/navigation";
 import LoginForm from "~/app/(accounts)/login/_components/login-form";
 
 export default async function Login() {
-    const csrfToken = await getCsrfToken();
     const session = await getServerSession();
 
     if (session) {
@@ -34,7 +32,7 @@ export default async function Login() {
                             Sign in to your account
                         </h1>
 
-                        <LoginForm csrfToken={csrfToken} />
+                        <LoginForm />
                     </div>
                 </div>
             </div>
