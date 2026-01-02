@@ -3,7 +3,6 @@ import "~/styles/globals.css";
 import { Inter } from "next/font/google";
 
 import AuthProvider from "~/app/_components/auth-provider";
-
 import Navbar from "~/app/_components/navbar";
 import environment from "~/server/environment";
 

@@ -2,7 +2,10 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+
 import Render from "~/components/client/render";
+
+import type { FunctionComponent } from "react";
 
 interface Properties {
     projectName?: string;
@@ -10,7 +13,7 @@ interface Properties {
 
 const BUTTON_CLASS = "btn btn-primary btn-ghost min-w-24";
 
-export default function Navbar(properties: Properties) {
+const Navbar: FunctionComponent<Properties> = properties => {
     const { data: session } = useSession();
 
     return (
@@ -29,9 +32,9 @@ export default function Navbar(properties: Properties) {
                 </Render>
 
                 <Render if={session === null}>
-                    <a className={BUTTON_CLASS} onClick={() => signIn()}>
+                    <button className={BUTTON_CLASS} onClick={() => signIn()}>
                         Login
-                    </a>
+                    </button>
 
                     <Link className={BUTTON_CLASS} href="/sign-up">
                         Sign Up
@@ -53,4 +56,6 @@ export default function Navbar(properties: Properties) {
             </div>
         </div>
     );
-}
+};
+
+export default Navbar;

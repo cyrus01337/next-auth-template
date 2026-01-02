@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import ForgotPasswordForm from "~/app/(accounts)/forgot-password/_components/forgot-password-form";
+import environment from "~/server/environment";
 
 export default async function ForgotPassword() {
     return (
@@ -12,7 +13,7 @@ export default async function ForgotPassword() {
                     className="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
                     href="/"
                 >
-                    Gym Site
+                    {environment.NEXT_PUBLIC_PROJECT_NAME}
                 </Link>
 
                 <div className="w-full rounded-lg bg-white shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800">

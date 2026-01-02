@@ -5,12 +5,14 @@ import { useState } from "react";
 
 import { ClientLoginCredentials } from "~/shared/types";
 
-export default function SignUpForm() {
+import type { FormEventHandler, FunctionComponent } from "react";
+
+const SignUpForm: FunctionComponent = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [registering, setRegistering] = useState(false);
 
-    const handleSignUp: React.FormEventHandler<HTMLFormElement> = async event => {
+    const handleSignUp: FormEventHandler<HTMLFormElement> = async event => {
         event.preventDefault();
         setError("");
         setRegistering(true);
@@ -101,4 +103,6 @@ export default function SignUpForm() {
             </p>
         </form>
     );
-}
+};
+
+export default SignUpForm;

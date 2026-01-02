@@ -4,17 +4,18 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 import type { ClientLoginCredentials } from "~/shared/types";
+import type { FormEventHandler, FunctionComponent } from "react";
 
 interface Properties {
     csrfToken?: string;
 }
 
-export default function LoginForm(properties: Properties) {
+const LoginForm: FunctionComponent<Properties> = properties => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
 
-    const handleSignIn: React.FormEventHandler<HTMLFormElement> = async event => {
+    const handleSignIn: FormEventHandler<HTMLFormElement> = async event => {
         event.preventDefault();
         setError("");
         setLoggingIn(true);
@@ -24,9 +25,9 @@ export default function LoginForm(properties: Properties) {
             email: formData.get("email") as string,
             password: formData.get("password") as string,
         } satisfies ClientLoginCredentials;
-
         const response = await signIn("credentials", {
             ...credentials,
+
             callbackUrl: "/",
         });
 
@@ -110,4 +111,6 @@ export default function LoginForm(properties: Properties) {
             </p>
         </form>
     );
-}
+};
+
+export default LoginForm;
