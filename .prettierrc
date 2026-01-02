@@ -6,18 +6,19 @@
         "",
         "<THIRD_PARTY_MODULES>",
         "",
-        "^@/(.*)",
-        "^~/(.*)",
-        "^[\\.]*/(.*)",
+        "^@/(.*)$",
+        "^~/(.*)$",
+        "^[\\.]*/(.*)$",
         "",
         "<TYPES>"
     ],
     "importOrderParserPlugins": ["typescript", "jsx", "importAssertions"],
+    "importOrderTypeScriptVersion": "5.0.0",
     "plugins": [
-        "@ianvs/prettier-plugin-sort-imports",
         "prettier-plugin-sort-json",
         "prettier-plugin-tailwindcss",
-        "prettier-plugin-sort-props"
+        "prettier-plugin-sort-props",
+        "@ianvs/prettier-plugin-sort-imports"
     ],
     "printWidth": 100,
     "sortPropsCustomOrder": [
